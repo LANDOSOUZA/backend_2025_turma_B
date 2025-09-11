@@ -2,7 +2,7 @@
 
 let carro = {
     nome: 'Jeep',
-    cor: 'vermelho'
+    cor: 'vermelho',
     ano: 2022,
     velocidade:function(){
         return this.nome + '150 km/h';

@@ -10,4 +10,4 @@ let pessoa={
 }
 console.log(pessoa) // exibe o objeto pessoa
 console.log(pessoa.profissao) // acessa o atributo nome do objeto pessoa
-console.log(pessoa.saudacao() // chama o método saudacao do objeto pessoa
+console.log(pessoa.saudacao())// chama o método saudacao do objeto pessoa

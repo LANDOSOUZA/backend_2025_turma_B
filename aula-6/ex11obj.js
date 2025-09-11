@@ -3,7 +3,7 @@
 carro = {}; // cria um objeto vazio
 carro.modelo = 'Jaguar'; // adiciona atributo modelo
 carro.ano = 2020; // adiciona atributo ano
-carro.combustivel; = 'Híbrido'; // adiciona atributo combustivel
+carro.combustivel = 'Híbrido'; // adiciona atributo combustivel
 carro.portas = 5; // adiciona atributo portas
 carro.acelera = function() { // adiciona método acelerar
     return'O carro está acelerando'
