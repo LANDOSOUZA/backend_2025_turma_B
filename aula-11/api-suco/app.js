@@ -1,13 +1,13 @@
 // Codigo API Sucos
 // Biblioteca para criar o servidor
 const express = require("express");
-const Database = require("better-sqlite3") ; // biblioteca para comunicar com o banco de dados
+const Database = require("better-sqlite3"); // biblioteca para comunicar com o banco de dados
 const helmet = require("helmet"); // biblioteca para segurança
 const morgan = require("morgan"); // biblioteca para registrar logs
 const {z} = require("zod"); // biblioteca para validar dados
 
 
-const app = express() ; // armazena o servidor em app
+const app = express(); // armazena o servidor em app
 app.use(express.json());
 app.use(helmet());
 app.use(morgan("dev"));
@@ -27,7 +27,7 @@ db.exec(`
     CREATE TABLE IF NOT EXISTS pedidos(
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     suco_id INTEGER NOT NULL,
-    quantidade: INTEGER NOT NULL,
+    quantidade INTEGER NOT NULL,
     status TEXT NOT NULL CHECK(status IN ('iniciado','em_processamento','pronto')),
     criado_em TEXT NOT NULL,
     atualizado_em TEXT NOT NULL,
@@ -77,3 +77,19 @@ app.post("/cadastro-suco",(req,res)=>{
    }
 
 });
+
+// Rota Get para exibir os sucos cadastrados
+app.get("/cadastro-suco",(_req,res) =>{
+    const sucos = db.prepare("SELECT * FROM sucos ORDER BY nome").all();
+    return res.json(sucos);
+})
+
+
+app.get("/",(_req,res)=> res.send("API Sucos OK !"));
+
+// Start
+const PORT = process.env.PORT|| 3000;
+app.listen(PORT,()=>{
+    console.log(`API rodando em http://localhost:${PORT}`);
+});
+
