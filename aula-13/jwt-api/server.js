@@ -19,7 +19,7 @@ app.use(morgan("dev"));
 
 app.get("/",(req,res)=>res.json({status:"ok"}));
 app.use("/auth",require("./routes/auth"));
-app.use("/orders",require("./routes/orders"))
+app.use("/orders",require("./routes/order"));
 
 // inicia o servidor
 const PORT = process.env.PORT || 3000;

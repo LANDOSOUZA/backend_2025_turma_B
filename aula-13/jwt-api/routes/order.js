@@ -3,7 +3,7 @@
  const express = require("express");
  const {z} = require("zod");
  const auth = require("../middleware/auth");
- const Order = require("../models/Orders");
+ const Order = require("../models/Order");
 // importa o método router
  const router = express.Router();
 
